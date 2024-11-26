@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@700&display=swap");
+
+@keyframes nieve {
+  0% {
+    fill-opacity: 1;
+  }
+  100% {
+    fill-opacity: 0;
+    transform: translateY(50%);
+  }
+}
+body {
+  overflow-x: hidden;
+  color: #fff;
+  margin: 0 auto;
+  background-color: #032309;
+}
+body * {
+  font-family: "Mountains of Christmas", cursive;
+}
+body p, body h1, body h2, body h3, body h4, body h5, body h6 {
+  margin: 0;
+}
+body a {
+  color: #dfb6b6;
+  text-decoration: none;
+}
+body ul, body li {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.countdownSection {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+.countdownSection:before, .countdownSection:after {
+  content: "";
+  position: absolute;
+}
+.countdownSection:before {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(rgba(255, 255, 255, 0.3), transparent);
+  pointer-events: none;
+}
+.countdownSection:after {
+  width: 90%;
+  height: 90%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.countdownSection .decorations {
+  pointer-events: none;
+}
+.countdownSection .decorations .decoration {
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/fotos-3cba1.appspot.com/o/navidad%2Fdecoration.png?alt=media&token=201ed160-2a86-4b14-869f-85981e9ff5fb");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  filter: blur(3px);
+  z-index: 1;
+}
+
+.countdownSection .decorations .decoration[data-pos="top right"] {
+  top: 0;
+  right: 0;
+  transform: rotate(180deg);
+}
+.countdownSection .decorations .decoration[data-pos="top left"] {
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+}
+.countdownSection .decorations .decoration[data-pos="bottom left"] {
+  bottom: 0;
+  left: 0;
+}
+.countdownSection .decorations .decoration[data-pos="bottom right"] {
+  bottom: 0;
+  right: 0;
+  transform: rotate(-90deg);
+
+}
+
+.countdownSection .decorations .nieve {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.countdownSection .decorations .nieve .particle {
+  fill: #fff;
+  animation: nieve 5s ease-out infinite;
+}
+.countdownSection .decorations .nieve .particle:nth-child(2n) {
+  animation-delay: 1.5s;
+}
+.countdownSection .decorations .nieve .particle:nth-child(3n) {
+  animation-delay: 2.5s;
+  animation-duration: 5.3s;
+}
+.countdownSection .decorations .nieve .particle:nth-child(4n) {
+  animation-delay: 1s;
+  animation-duration: 5.2s;
+}
+.countdownSection .decorations .nieve .particle:nth-child(5n) {
+  animation-delay: 3s;
+} 
+.countdownSection .container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 90%;
+  padding: 50px 0;
+}
+.countdownSection .container .counterWrapper {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.countdownSection .container .counterWrapper p {
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSdzikvPf35VJPCYe9fIROkrgwsz1oRRsh-oA&s);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 100px;
+}
+.countdownSection .container .counterWrapper .countdown {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+}
+.countdownSection .container .counterWrapper .countdown .countdownProp {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  width: 240px;
+  margin: 10px;
+  font-size: 200px;
+  line-height: 150px;
+  background-image: url(https://i.pinimg.com/736x/1d/ba/6a/1dba6a68de3916ee0189cb4dc6f79f9a.jpg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 100px #fff;
+}
+.countdownSection .container .counterWrapper .countdown .countdownProp:not(:first-child):before {
+  content: ":";
+}
+.countdownSection .container .counterWrapper .countdown .countdownProp:after {
+  content: attr(date-count);
+  width: 100%;
+  font-size: 20px;
+  -webkit-text-fill-color: #fff;
+  line-height: normal;
+}
+
+@media only screen and (max-width: 700px) {
+  .countdownSection .decorations .decoration {
+    width: 300px;
+    height: 300px;
+  }
+  .countdownSection .container .counterWrapper p {
+    font-size: 70px;
+  }
+  .countdownSection .container .counterWrapper .countdown {
+    margin: 20px 0;
+  }
+  .countdownSection .container .counterWrapper .countdown .countdownProp {
+    width: 120px;
+    font-size: 100px;
+    line-height: 80px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  
+  .countdownSection .container .counterWrapper p {
+    font-size: 50px;
+  }
+  .countdownSection .container .counterWrapper .countdown .countdownProp {
+    display: block;
+  }
+  .countdownSection .container .counterWrapper .countdown .countdownProp:not(:first-child):before {
+    display: none;
+  }
+  .countdownSection .container .counterWrapper .countdown .countdownProp:after {
+    display: block;
+  }
+}
